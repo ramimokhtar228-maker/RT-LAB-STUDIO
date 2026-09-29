@@ -1,0 +1,8 @@
+{
+  "name": "Remix RT Lab - Smart LIS \u0026 Booking Platform",
+  "description": "منظومة متكاملة لإدارة المختبرات الطبية (LIS)، حجز التحاليل والزيارات المنزلية، كتالوج الفحوصات والتقارير المخبرية الرسمية مع الباركود.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

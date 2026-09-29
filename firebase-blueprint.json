@@ -1,0 +1,92 @@
+{
+  "entities": {
+    "Booking": {
+      "title": "Booking",
+      "description": "Patient home visit or branch test booking",
+      "type": "object",
+      "properties": {
+        "bookingNumber": { "type": "string" },
+        "patientName": { "type": "string" },
+        "patientPhone": { "type": "string" },
+        "patientAge": { "type": "number" },
+        "patientGender": { "type": "string", "enum": ["male", "female"] },
+        "serviceType": { "type": "string", "enum": ["home_visit", "lab_branch"] },
+        "branchName": { "type": "string" },
+        "address": { "type": "string" },
+        "area": { "type": "string" },
+        "visitDate": { "type": "string" },
+        "visitTime": { "type": "string" },
+        "selectedTestIds": { "type": "array" },
+        "selectedPackageId": { "type": "string" },
+        "notes": { "type": "string" },
+        "totalPrice": { "type": "number" },
+        "discount": { "type": "number" },
+        "finalPrice": { "type": "number" },
+        "status": { 
+          "type": "string", 
+          "enum": ["pending", "confirmed", "technician_assigned", "sample_collected", "processing", "completed", "cancelled"] 
+        },
+        "technicianName": { "type": "string" },
+        "transferredToLisOrderId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["bookingNumber", "patientName", "patientPhone", "finalPrice", "status"]
+    },
+    "LabOrder": {
+      "title": "LabOrder",
+      "description": "Laboratory information system clinical order and results",
+      "type": "object",
+      "properties": {
+        "orderNumber": { "type": "string" },
+        "sampleBarcode": { "type": "string" },
+        "patientId": { "type": "string" },
+        "patientName": { "type": "string" },
+        "patientAge": { "type": "number" },
+        "patientGender": { "type": "string", "enum": ["male", "female"] },
+        "patientPhone": { "type": "string" },
+        "referringDoctor": { "type": "string" },
+        "branch": { "type": "string" },
+        "bookingId": { "type": "string" },
+        "sampleCollectionDate": { "type": "string" },
+        "reportReleaseDate": { "type": "string" },
+        "testIds": { "type": "array" },
+        "results": { "type": "object" },
+        "overallStatus": { 
+          "type": "string", 
+          "enum": ["pending_results", "partially_entered", "verified", "released"] 
+        },
+        "clinicalRemarks": { "type": "string" },
+        "technicianName": { "type": "string" },
+        "verifiedByDoctor": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["orderNumber", "sampleBarcode", "patientName", "overallStatus"]
+    },
+    "LabSettings": {
+      "title": "LabSettings",
+      "description": "Laboratory profile, contacts and branding",
+      "type": "object",
+      "properties": {
+        "labNameAr": { "type": "string" },
+        "labNameEn": { "type": "string" },
+        "licenseNumber": { "type": "string" },
+        "phonePrimary": { "type": "string" },
+        "addressAr": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/bookings/{bookingId}": {
+      "schema": { "$ref": "#/entities/Booking" },
+      "description": "Stores patient home visit and branch bookings accessible across all devices"
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/LabOrder" },
+      "description": "Stores laboratory orders and verified clinical test results"
+    },
+    "/settings/{settingsId}": {
+      "schema": { "$ref": "#/entities/LabSettings" },
+      "description": "Stores centralized laboratory configuration and header settings"
+    }
+  }
+}

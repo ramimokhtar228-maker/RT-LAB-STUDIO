@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Tajawal', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@media print {
+  /* Hide all elements during print except the printable report */
+  body {
+    background: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  .print-page {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 10mm 12mm !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100% !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-page {
+    break-after: page;
+    page-break-after: always;
+  }
+  .print-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 6mm 8mm;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

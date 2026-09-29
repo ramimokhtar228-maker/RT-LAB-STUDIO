@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Dark Crimson & Deep Blue Gradient -->
+    <linearGradient id="rt-crimson-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#881337" />
+      <stop offset="50%" stop-color="#9f1239" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </linearGradient>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#020617" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Background with Safe Margin -->
+  <rect width="512" height="512" rx="112" fill="url(#rt-crimson-blue)" />
+
+  <!-- Inner Diagnostic Ring -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="4" stroke-dasharray="14 14" />
+
+  <!-- Medical Flask & Diagnostic Pulse Graphic -->
+  <g filter="url(#glow)" fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Lab Flask Neck & Lip -->
+    <path d="M216 110 L300 110" />
+    <path d="M236 110 L236 180 L140 350 A 24 24 0 0 0 160 384 L352 384 A 24 24 0 0 0 372 350 L276 180 L276 110" />
+    
+    <!-- Liquid Level Inside Flask -->
+    <path d="M172 310 Q 214 290, 256 310 T 340 310" stroke-width="12" stroke-opacity="0.8" />
+    
+    <!-- Medical Cross in Liquid -->
+    <path d="M256 240 L256 280" stroke="#fcd34d" stroke-width="16" />
+    <path d="M236 260 L276 260" stroke="#fcd34d" stroke-width="16" />
+  </g>
+
+  <!-- Bubble Accent -->
+  <circle cx="220" cy="220" r="10" fill="#ffffff" fill-opacity="0.6" />
+  <circle cx="290" cy="245" r="7" fill="#ffffff" fill-opacity="0.4" />
+
+  <!-- RT LAB Text Badge -->
+  <rect x="146" y="405" width="220" height="44" rx="22" fill="#0f172a" fill-opacity="0.95" stroke="#be123c" stroke-width="2" />
+  <text x="256" y="434" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle" letter-spacing="2">
+    RT • DR. RAMY
+  </text>
+</svg>
